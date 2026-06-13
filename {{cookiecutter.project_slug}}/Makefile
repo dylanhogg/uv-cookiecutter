@@ -11,6 +11,7 @@ venv:
 
 which-python:
 	uv run which python
+	uv run which python | pbcopy
 
 clean:
 	rm -rf .venv

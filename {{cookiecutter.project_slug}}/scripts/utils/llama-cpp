@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# brew install llama.cpp
+# https://github.com/ggml-org/llama.cpp
+
+# Use a local model file
+llama-cli -m my_model.gguf
+
+# Or download and run a model directly from Hugging Face
+llama-cli -hf Qwen/Qwen3.5-0.8B
+
+# Launch OpenAI-compatible API server
+llama-server -hf Qwen/Qwen3.5-0.8B
