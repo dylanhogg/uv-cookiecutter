@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# ./hf-chat [MODEL] [HOST] [PORT]
+# ./hf-chat Qwen/Qwen2.5-0.5B-Instruct
+# ./hf-chat Qwen/Qwen3.5-4B
+# ./hf-chat unsloth/Qwen3.5-4B-GGUF
+
+MODEL="${1:-Qwen/Qwen/Qwen3.5-0.8B}"
+HOST="${HOST:-localhost}"
+PORT="${PORT:-8000}"
+BASE_URL="http://${HOST}:${PORT}"
+
+UVX_DEPS=(
+  --from "transformers[serving]"
+  --with requests
+  --with pillow
+  --with torch
+  --with torchvision
+  --with accelerate
+)
+
+uvx "${UVX_DEPS[@]}" transformers serve &
+SERVER_PID=$!
+
+cleanup() {
+  kill "$SERVER_PID" 2>/dev/null || true
+}
+trap cleanup EXIT INT TERM
+
+echo "Waiting for transformers server at ${BASE_URL}..."
+
+until curl -fsS "${BASE_URL}/v1/models" >/dev/null; do
+  sleep 2
+done
+
+echo "Starting chat with ${MODEL}"
+
+uvx "${UVX_DEPS[@]}" transformers chat "$MODEL"

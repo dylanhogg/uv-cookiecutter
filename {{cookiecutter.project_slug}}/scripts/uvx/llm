@@ -3,10 +3,18 @@ set -euo pipefail
 
 # datasette llm utility
 # https://llm.datasette.io/en/stable/usage.html
+# brew install llm
 
 # uvx llm --help
 # uvx llm models
 # uvx llm keys
 # echo 'List 3 great gluten free dinner recipes' | llm -m gpt-5-nano
 
-uvx llm -m gpt-5-nano 'Concisely in 1 sentence, what benefits does the Python uv package manager have over pip, poetry and others?'
+# Simple LLM query
+uvx llm -m gpt-5-nano --usage 'Concisely in 1 sentence, what benefits does the Python uv package manager have over pip, poetry and others?'
+
+# Pipe a website through LLM and write the output to a file
+# NOTE: to use an `openai-codex` model (e.g. -m openai-codex/gpt-5.5) run `llm install llm-openai-via-codex`
+curl https://www.awesomepython.org/ \
+  | llm -m openai-codex/gpt-5.5 --usage --system 'What is this website about?' \
+  > temp.txt
