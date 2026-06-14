@@ -8,14 +8,19 @@ NOTE: this project is a WIP, this vision is under active development.
 
 TODO: add project vision, goals, and non-goals here to guide AI agents in development.
 
+## Simplicity First Guidelines
+
+- Before implementing: if requirements are ambiguous, ask first.
+- Write simple, clean, maintainable, minimal code.
+- Don't over complicate or over engineer solutions.
+- If you write 200 lines and it could be 50, rewrite it.
+- No error handling for impossible scenarios.
+- No "flexibility" or "configurability" that wasn't requested.
+- Chat style: Always be extremely concise. Sacrifice grammar for the sake of being concise. Skip preamble and recaps.
+- Self-check before finishing: "Would a senior engineer call this overcomplicated?" If yes, simplify.
+
 ## Python Coding Guidelines
 
-Key guidelines: extreme conciseness, simple/minimal code, functional style preferred over OO when possible, type hints on all functions, `typer` for CLI, `loguru` for logging, `pydantic` for models, `python-dotenv` for config. Implicit namespace packages — do **not** add `__init__.py` files without clear justification. Only update docs/README when explicitly asked.
-
-- Always be extremely concise. Sacrifice grammar for the sake of being concise.
-- Write simple, clean and minimal code.
-- Don't over complicate or over engineer solutions.
-- Strive for simplicity and maintainability, while being efficient.
 - Prefer implicit namespace packages and avoid creating `__init__.py` files unless there is a clear, justified need.
 - Only update documentation or README.md if explicitly requested.
 - Keep docstrings minimal, prefer the code to speak for itself.
