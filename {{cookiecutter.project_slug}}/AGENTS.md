@@ -39,6 +39,14 @@ TODO: add project vision, goals, and non-goals here to guide AI agents in develo
 - Use Pydantic data models when appropriate.
 - Target Python version is specified in `pyproject.toml`.
 
+## Test-Driven Development (TDD) Guidelines
+
+- Follow the red-green-refactor loop when appropriate. Write one failing test (RED), minimal code to pass it (GREEN), then refactor—repeat.
+- Test behaviour, not implementation. Write integration-style tests against public APIs that read like specs ("user can checkout with valid cart") and describe _what_ the system does, not _how_. These survive refactors; if renaming an internal function breaks a test, that test was wrong. Avoid bad tests coupled to implementation—mocking internal collaborators, testing private methods, or verifying through external means.
+- Go vertical, never horizontal. One test → one implementation → repeat. Never write all tests first—that tests imagined behaviour and data shapes instead of real, user-facing behaviour.
+- Plan before coding. Focus testing effort on critical paths and complex logic, not every possible edge case.
+- Refactor only when GREEN. Once tests pass, remove duplication and hide complexity behind simple interfaces, re-running tests after each step. No speculative features, and never refactor while RED.
+
 ## Critical Thinking
 
 - Fix root cause (not band-aid).
@@ -88,8 +96,6 @@ TODO: add project vision, goals, and non-goals here to guide AI agents in develo
 - Keep source code in a `./src/{{ cookiecutter.package_name }}/` directory.
 - Place tests in a `./tests/{{ cookiecutter.package_name }}/` directory.
 - Keep configuration files in the root directory.
-- See below for more details on testing, linting, and type checking.
-- See `Makefile` for additional project management commands.
 
 ## Common commands
 
