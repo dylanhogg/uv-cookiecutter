@@ -2,13 +2,21 @@
 
 This file contains guidelines for AI agents to follow when writing code in this project.
 
+## `{{ cookiecutter.package_name }}` project vision
+
+NOTE: this project is a WIP, this vision is under active development.
+
+TODO: add project vision, goals, and non-goals here to guide AI agents in development.
+
 ## Python Coding Guidelines
+
+Key guidelines: extreme conciseness, simple/minimal code, functional style preferred over OO when possible, type hints on all functions, `typer` for CLI, `loguru` for logging, `pydantic` for models, `python-dotenv` for config. Implicit namespace packages — do **not** add `__init__.py` files without clear justification. Only update docs/README when explicitly asked.
 
 - Always be extremely concise. Sacrifice grammar for the sake of being concise.
 - Write simple, clean and minimal code.
 - Don't over complicate or over engineer solutions.
 - Strive for simplicity and maintainability, while being efficient.
-- Prefer implicit namespace packages and avoid creating __init__.py files unless there is a clear, justified need.
+- Prefer implicit namespace packages and avoid creating `__init__.py` files unless there is a clear, justified need.
 - Only update documentation or README.md if explicitly requested.
 - Keep docstrings minimal, prefer the code to speak for itself.
 - Keep functions focused on a single responsibility.
@@ -24,6 +32,7 @@ This file contains guidelines for AI agents to follow when writing code in this 
 - Use f-strings for string formatting, and use the f"{var=}" syntax to show the variable name and its value.
 - A functional programming approach is preferred over an object-oriented one. Use classes when appropriate.
 - Use Pydantic data models when appropriate.
+- Target Python version is specified in `pyproject.toml`.
 
 ## Critical Thinking
 
@@ -77,6 +86,19 @@ This file contains guidelines for AI agents to follow when writing code in this 
 - See below for more details on testing, linting, and type checking.
 - See `Makefile` for additional project management commands.
 
+## Common commands
+
+See `Makefile` for additional project management commands.
+
+```bash
+make venv              # uv sync --all-groups + editable install
+make run               # run the app via `python -m talkwithdata.app`
+make test              # pytest, no coverage gate
+make test-cov          # pytest with coverage (term + html)
+make manual-checks     # ruff format + ruff check --fix + pyright
+make precommit         # run all pre-commit hooks
+```
+
 ## Package Management with uv
 
 - Package management is via `uv`.
@@ -91,7 +113,7 @@ This file contains guidelines for AI agents to follow when writing code in this 
 
 - Use `pytest` for testing.
 - Use `pytest-cov` for code coverage reporting.
-- Follow the naming convention: test_*.py.
+- Follow the naming convention: `test_*.py`.
 - Use fixtures for test setup and teardown.
 - Place test files in `./tests/{{ cookiecutter.package_name }}/`.
 

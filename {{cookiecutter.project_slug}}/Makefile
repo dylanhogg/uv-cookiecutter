@@ -53,6 +53,19 @@ precommit-install:
 precommit:
 	uv run pre-commit run --all-files
 
+build-dist:
+	rm -rf dist
+	rm -rf build
+	rm -rf sqlexplore.egg-info
+	uv build
+
+publish-check:
+	uv publish --dry-run
+
+publish-pypi:
+	@test -n "$$UV_PUBLISH_TOKEN" || (echo "UV_PUBLISH_TOKEN is required"; exit 1)
+	uv publish
+
 .DEFAULT_GOAL := help
 .PHONY: help
 help:
