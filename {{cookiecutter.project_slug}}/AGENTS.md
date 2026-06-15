@@ -102,11 +102,10 @@ TODO: add project vision, goals, and non-goals here to guide AI agents in develo
 See `Makefile` for additional project management commands.
 
 ```bash
-make venv              # uv sync --all-groups + editable install
-make run               # run the app via `python -m talkwithdata.app`
+make venv              # uv sync
+make run               # run the app
 make test              # pytest, no coverage gate
-make test-cov          # pytest with coverage (term + html)
-make manual-checks     # ruff format + ruff check --fix + pyright
+make test-cov          # pytest with coverage
 make precommit         # run all pre-commit hooks
 ```
 
