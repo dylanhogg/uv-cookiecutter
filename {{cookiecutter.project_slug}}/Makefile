@@ -19,6 +19,11 @@ clean:
 run:
 	uv run python -m {{cookiecutter.package_name}}.app reqarg1 --optional-arg "optional arg"
 
+run-arg:
+	@echo "Usage: make run-args REQARG=reqarg1 OPTARG=optarg1"
+	@test -n "$(REQARG)" || (echo "Error: REQARG parameter required" && exit 1)
+	uv run python -m {{cookiecutter.package_name}}.app $(REQARG)
+
 run-as-tool:
 	uv run app reqarg1 --optional-arg "optional arg"
 
