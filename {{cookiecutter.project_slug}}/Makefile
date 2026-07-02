@@ -17,13 +17,13 @@ clean:
 	rm -rf .venv
 
 agent-skills-symlink:
+	ln -s AGENTS.md CLAUDE.md
 	ln -s ../.agents/skills ./.claude/skills
 	ln -s ../.agents/skills ./.codex/skills
 
 agent-skills-verify:
+	ls -la CLAUDE.md
 	ls -la ./.claude/skills ./.codex/skills
-	readlink ./.claude/skills
-	readlink ./.codex/skills
 
 run:
 	uv run python -m {{cookiecutter.package_name}}.app reqarg1 --optional-arg "optional arg"
