@@ -18,6 +18,7 @@ TODO: add project vision, goals, and non-goals here to guide AI agents in develo
 - No "flexibility" or "configurability" that wasn't requested.
 - Chat style: Always be extremely concise. Sacrifice grammar for the sake of being concise. Skip preamble and recaps.
 - Self-check before finishing: "Would a senior engineer call this overcomplicated?" If yes, simplify.
+- For all coding tasks use your judgement to decide an appropriate lower power model and run that in a subagent.
 
 ## Python Coding Guidelines
 
