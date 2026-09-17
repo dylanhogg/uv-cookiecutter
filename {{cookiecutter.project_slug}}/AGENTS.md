@@ -18,7 +18,13 @@ TODO: add project vision, goals, and non-goals here to guide AI agents in develo
 - No "flexibility" or "configurability" that wasn't requested.
 - Chat style: Always be extremely concise. Sacrifice grammar for the sake of being concise. Skip preamble and recaps.
 - Self-check before finishing: "Would a senior engineer call this overcomplicated?" If yes, simplify.
-- For all coding tasks use your judgement to decide an appropriate lower power model and run that in a subagent.
+
+## Coding Task Subagent Delegation
+
+- Delegate to a lower-power model only for well-specified, self-contained, mechanical tasks (scaffolding, tests from a clear spec, bulk edits, lint/type fixes, codebase search) or independent parallel subtasks.
+- Do NOT delegate: debugging, design decisions, cross-cutting refactors, or tasks requiring substantial conversation context that cannot be reliably included in a short brief.
+- Make trivial edits directly when delegation would add overhead.
+- The parent agent remains responsible for reviewing delegated changes and verifying relevant behaviour before declaring completion.
 
 ## Python Coding Guidelines
 
