@@ -10,7 +10,8 @@ TODO: add project vision, goals, and non-goals here to guide AI agents in develo
 
 ## Simplicity First Guidelines
 
-- Before implementing: if requirements are ambiguous, ask first.
+- Before implementing: if requirements are at all ambiguous, ask clarifying questions.
+- Structure implementation plans as verifiable milestones that each deliver a concrete working outcome, rather than broad activity-based phases.
 - Write simple, clean, maintainable, minimal code.
 - Don't over complicate or over engineer solutions.
 - If you write 200 lines and it could be 50, rewrite it.

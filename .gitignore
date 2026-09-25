@@ -5,6 +5,8 @@ data/
 data*/
 _data/
 _data*/
+_local/
+_local*/
 .joblib_cache/
 .joblib_cache*/
 
