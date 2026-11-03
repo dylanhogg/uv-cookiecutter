@@ -70,7 +70,7 @@ precommit:
 build-dist:
 	rm -rf dist
 	rm -rf build
-	rm -rf sqlexplore.egg-info
+	rm -rf {{cookiecutter.package_name}}.egg-info
 	uv build
 
 publish-check:

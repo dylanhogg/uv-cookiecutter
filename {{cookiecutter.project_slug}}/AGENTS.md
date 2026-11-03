@@ -12,6 +12,8 @@ TODO: add project vision, goals, and non-goals here to guide AI agents in develo
 
 - Before implementing: if requirements are at all ambiguous, ask clarifying questions.
 - Structure implementation plans as verifiable milestones that each deliver a concrete working outcome, rather than broad activity-based phases.
+- Create agentic plan files in `./plans/00N-<plan-name>.md`, use milestones with status table near top of plan, update status as milestones are completed, and keep a change log under the status table. List assumptions and open questions in the plan.
+- When creating a plan, ask clarifying questions if needed to ensure the plan is well-scoped.
 - Write simple, clean, maintainable, minimal code.
 - Don't over complicate or over engineer solutions.
 - If you write 200 lines and it could be 50, rewrite it.
